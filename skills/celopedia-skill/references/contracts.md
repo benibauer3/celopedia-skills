@@ -80,6 +80,34 @@ All addresses verified from official Celo documentation. **Do not guess addresse
 | Wrapped Ether | WETH | `0xD221812de1BD094f35587EE8E174B07B6167D9Af` |
 | CELO (ERC-20) | CELO | `0x471EcE3750Da237f93B8E339c536989b8978a438` |
 
+### Rippio wFIAT — Wrapped LATAM Fiat (Mainnet)
+
+Custodial wrapped-fiat tokens issued by [Rippio](https://ripio.com), backed 1:1 by domestic currency reserves held at regulated financial institutions. Independent local-auditor attestations. Launched on Celo mainnet July 2026.
+
+**Not Mento stablecoins** — no algorithmic mechanism, no Mento Reserve. Treat like USDC/USDT: ERC-20, custodial, redeemable 1:1. All tokens use **18 decimals**.
+
+| Token | Symbol | Address | Supply status |
+|-------|--------|---------|---------------|
+| Rippio Wrapped Brazilian Real | `wBRL` | `0xd76f5faf6888e24d9f04bf92a0c8b921fe4390e0` | Active (~102K BRL) |
+| Rippio Wrapped Argentine Peso | `wARS` | `0x0dc4f92879b7670e5f4e4e6e3c801d229129d90d` | Active (~31.6M ARS) |
+| Rippio Wrapped Mexican Peso | `wMXN` | `0x337e7456b420bd3481e7fa61fa9850343d610d34` | Active (~5K MXN) |
+| Rippio Wrapped Colombian Peso | `wCOP` | `0x8a1d45e102e886510e891d2ec656a708991e2d76` | Active (~1M COP) |
+| Rippio Wrapped Peruvian Sol | `wPEN` | `0x4F34c8b3b5FB6D98Da888F0feA543d4d9C9F2eBE` | Test (~100 PEN) |
+| Rippio Wrapped Chilean Peso | `wCLP` | `0x61D450a098b6a7f69fC4b98CE68198fe59768651` | Test (~100 CLP) |
+
+**On-chain liquidity (Textile FX — Celo mainnet):**
+
+| Pool | Address |
+|------|---------|
+| wARS / USDT | `0x14a9aec2bbdb21f86612b2a97a74d380b10d6fa4` |
+| wBRL / USDT | `0x0ea5b44cad7624cd8f5ffdc184022f630a05efac` |
+
+> **feeCurrency**: no CIP-64 adapter deployed yet. Gas for wFIAT transactions must be paid in USDm, USDC, or USDT. Do not pass wFIAT addresses in the `feeCurrency` field.
+>
+> **MiniPay**: wFIAT tokens are **not** supported by MiniPay (which supports USDT, USDC, and USDm only). These tokens are available for general Celo dApp use.
+>
+> **Ticker collision**: Rippio's `wBRL` is a custodial wrapped Real — distinct from Mento's `BRLm` (`0xe8537a…`), which is algorithmically stabilised. Match on address, not symbol.
+
 > Third-party stablecoins above are sourced from and verified against the official list: https://docs.celo.org/build-on-celo/build-with-local-stablecoin (addresses confirmed on-chain).
 >
 > **Ticker collisions to watch** (match on address, not symbol): Mountain Protocol's **USDM** (yield-bearing, US-Treasury-backed) is **not** Celo's **USDm** (cUSD, the Mento dollar). Minteo's **COPM** (`0xC92E…`) is **not** Mento's **COPm** (`0x8A56…`).
